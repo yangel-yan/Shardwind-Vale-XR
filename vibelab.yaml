@@ -1,0 +1,27 @@
+app:
+  id: "7709404324912365631"
+  name: 魔法原野
+  slogan: 施展八种法术，让原野随你改变
+  description: |
+    《魔法原野》（Shardwind Vale）是一款第一人称 VR 魔法沙盒。走进草地、树林和石砌遗迹，用双手柄选取法术、瞄准和蓄力。
+
+    点燃草地后借风传火，用冰霜冻结水面，再用生长法术让灰烬中的草木重新长出。你也能炸塌石墙，用奇点或龙卷移动碎片，再倒转时间恢复破坏前的状态。
+
+    在自由沙盒里试试不同的法术组合，也可以在旅程和挑战里完成控火、精准拆除和引导龙卷等目标。
+  tags: [ 策略解谜 ]
+  category: game
+  icon: assets/icon.jpg
+  landscape: assets/landscape.jpg
+  detail_images: [ assets/detail-1.jpg, assets/detail-2.jpg, assets/detail-3.jpg, assets/detail-4.jpg ]
+  videos: []
+version:
+  name: '0.2.0'
+  notes: 魔法原野首次在 VibeLab 独立发布，包含自由施法、场景破坏与时间回溯。
+build:
+  repo_url: https://github.com/yangel-yan/Shardwind-Vale-XR
+  repo_visibility: public
+  tech_stack: unity
+  ai_tool: Codex
+  ai_model: GPT-6
+  features: [ controller_support ]
+  teammates: []

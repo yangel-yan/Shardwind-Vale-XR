@@ -1,0 +1,73 @@
+FreeSandbox recording credits and use restrictions
+
+FreeSandbox recording credits and use restrictions
+
+These five game-ready loops derive exclusively from the existing project's locally licensed Sonniss GDC recordings. Their source/provenance is preserved in `REFERENCE-CREDITS.md` and the exact output hashes, edits, levels and source URLs are recorded in `audio-mapping.json`.
+
+#Recording licence
+
+The recordings are from the Sonniss GDC Game Audio Bundles, originally obtained from Sonniss's official mirror at ftpmirror.your.org. Existing project notice: the Sonniss GDC bundle licence permits incorporation into a game; it does not permit redistribution as standalone recordings or sound libraries. These recordings are not MIT, CC0 or CC BY.
+
+Licence: https://sonniss.com/gdc-bundle-license/
+
+Keep these Ogg files and their source recordings out of public source repositories. Do not upload or distribute them as standalone audio, sound libraries or sample packs. Package them only as game sound material in the built application. The original code licence does not relicense the recordings.
+
+#Derivative mapping
+
+Each output is Ogg Vorbis quality 4, mono, 24,000 Hz, 7.200 seconds. Offsets below refer to the existing prepared Ogg cut, not the original long recording.
+
+| FreeSandbox output | Existing prepared source | Segment offset | Recording creator/library | Original recording |
+| --- | --- | ---: | --- | --- |
+| Fire.ogg | firetex.ogg | 2.0 s | Gregor Quendel — Designed Fire (GDC 2018) | Designed Fire - Textures - Rumbling, glitch.wav |
+| Wind.ogg | wind.ogg | 5.0 s | Coll Anderson — Gentle Wind (GDC 2020) | EFX SD Design Wind Swells 03.wav |
+| Tornado.ogg | rush.ogg | 4.0 s | Discover Oregon — Ocean and Stream (GDC 2018) | Streams 2014 McKenzie 1.wav |
+| Ice.ogg | iceburn.ogg | 0.0 s | 3maze — ICE BLOCK (GDC 2016) | burn_ice_001.wav |
+| Meadow.ogg | treetops.ogg | 8.0 s | Alexander Kopeikin — Quad ambience of Crimea in summer (GDC 2018) | 28 lake, high wind in tree tops, birds, daytime - QUAD XY LR.wav |
+
+Edits: mono downmix; 24 kHz resampling; gentle high/low-pass filtering; 400 ms equal-power wrap crossfade; constant gain; 8 ms anti-click edge fades. `Ice.ogg` joins two instances of its four-second prepared source with another 400 ms equal-power crossfade and uses offline transient compression to soften isolated ticks. Runtime mixer volume and transitions remain controlled by the game's audio sources.
+
+Source selection uses a 7.6 s window followed by the wrap crossfade to produce each 7.2 s loop. The original cut provenance is: Fire 27 s from original time 2 s; Wind 33 s from time 20 s; Tornado/stream 20 s from time 3 s; Ice 4 s from time 0.1 s; Meadow 33 s from time 60 s. `audio-mapping.json` preserves the source filenames and source-project mirror URL for each.
+
+#Original preparation provenance
+
+Original source game: Small Magic by Patch, supplied source commit `8a096a024a6d5991102af525b269e9482bd695df`. Original sound design and preparation code are MIT, copyright 2026 Patch; the original MIT notice is preserved in `Preparation-source-LICENSE.txt`. The sound recordings retain their separate Sonniss licence. Independent FreeSandbox clips use serialized local AudioClip assets; their source-game paths are provenance, not runtime resource lookups.
+
+No external music or Genshin recording was used. FFmpeg was the existing local tool under `Tools/SmallMagicAudio/node_modules/ffmpeg-static`; no media or tool download was performed.
+
+Original preparation-source MIT notice:
+
+MIT License
+
+Copyright (c) 2026 Patch
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+
+Historical source-project recording notice (verbatim):
+
+# Small Magic reference recordings
+
+This game's audio uses recordings from the Sonniss GDC Game Audio Bundles, sourced from Sonniss's official mirror at ftpmirror.your.org. The recordings have the [Sonniss GDC bundle licence](https://sonniss.com/gdc-bundle-license/). They are not MIT, CC0 or CC BY. Their licence permits incorporation into a game; it does not permit redistribution as standalone recordings or sound libraries. Keep the Ogg files and their source recordings out of public source repositories.
+
+The exact 39 original recordings, their creators/libraries, cut positions and intended events are preserved in `Tools/SmallMagicAudio/MISSING_ASSETS.md`, `sounds.mjs` and `sound-sources.json`. The 76 prepared Ogg cuts are generated using Patch's original Small Magic preparation algorithm, with no substituted recordings. The recordings are retained locally under Resources/SmallMagicAudio solely for embedding in the game build.
+
+Source game: Small Magic by Patch, original supplied source commit `8a096a024a6d5991102af525b269e9482bd695df`. Original sound design and preparation code are MIT; see Tools/SmallMagicAudio/LICENSE-source-code and CREDITS-source.md. This does not extend the code licence to the recordings.
+
+The separate five Kenney grass steps remain CC0 under their existing credits. They provide a fallback when reference recordings are absent.
+
+The native restricted control program and its Float32 IR/noise/grain material are generated from the pinned MIT sound.js; no external JavaScript engine or browser ships. The native adaptive compressor and oversampling filters adapt Blink code (Google, BSD 3-Clause), separately from Patch's MIT code and Sonniss recordings; see BSD-LICENSE.txt and the packaged StreamingAssets notices. Canonical recording PCM used in local browser comparison fixtures retains the same Sonniss restrictions and is not an independently redistributable sample pack.
